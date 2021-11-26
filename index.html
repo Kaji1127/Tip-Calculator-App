@@ -32,48 +32,78 @@
 	</head>
 	<body>
 		<main>
-			<div class="wrapper">
+			<div class="wrapper grid">
 				<img src="images/logo.svg" class="logo" alt="Logo" />
-				<div class="calculator">
-					<div class="calculator__func">
-						<div class="calculator__bill">
-							<label for="bill">Bill</label>
-							<input type="text" id="bill" class="calculator__bill-input" />
+				<div class="calculator grid gap-lg">
+					<div class="calculator__func grid gap-lg">
+						<div class="calculator__bill grid gap-xs">
+							<div class="heading-content">
+								<label class="heading label" for="bill">Bill</label>
+								<p class="error">Can't be zero</p>
+							</div>
+							<input
+								type="text"
+								id="bill"
+								class="
+									calculator__input
+									calculator__input--num
+									calculator__input--dollar
+								"
+								placeholder="0"
+							/>
 						</div>
-						<div class="calculator__tip">
-							<p>Select Tip %</p>
-							<div class="calculator__tip-select">
-								<button class="calculator__tip-button">5%</button>
-								<button class="calculator__tip-button">10%</button>
-								<button class="calculator__tip-button">15%</button>
-								<button class="calculator__tip-button">25%</button>
-								<button class="calculator__tip-button">50%</button>
+						<div class="calculator__tip grid gap-sm">
+							<p class="heading">Select Tip %</p>
+							<div class="calculator__tip-select grid grid-button gap-sm">
+								<button class="button button-tip">5%</button>
+								<button class="button button-tip">10%</button>
+								<button class="button button-tip">15%</button>
+								<button class="button button-tip">25%</button>
+								<button class="button button-tip">50%</button>
 								<input
 									type="text"
-									class="calculator__custom"
-									placeholder="custom"
+									class="calculator__input calculator__input--custom"
+									placeholder="Custom"
 								/>
 							</div>
 						</div>
-						<div class="calculator__person">
-							<label for="person">Number of People</label>
-							<input type="text" placeholder="0" />
+						<div class="calculator__person grid gap-xs">
+							<div class="heading-content">
+								<label class="heading label" for="person">Number of People</label>
+								<p class="error">Can't be zero</p>
+							</div>
+							<input
+								id="person"
+								type="text"
+								placeholder="0"
+								class="
+									calculator__input
+									calculator__input--num
+									calculator__input--person
+								"
+							/>
 						</div>
 					</div>
 					<div class="calculator__result">
-						<div class="calculator__tip-amount">
+						<div class="calculator__amount">
 							<p>
-								<span>Tip Amount</span>
-								<span>/ person</span>
+								<span class="calculator__text">Tip Amount</span>
+								<span class="calculator__text calculator__text-divide"
+									>/ person</span
+								>
 							</p>
+							<p class="calculator__result-num">$0.00</p>
 						</div>
-						<div class="calculator__total">
+						<div class="calculator__amount">
 							<p>
-								<span>Total</span>
-								<span>/ person</span>
+								<span class="calculator__text">Total</span>
+								<span class="calculator__text calculator__text-divide"
+									>/ person</span
+								>
 							</p>
+							<p class="calculator__result-num">$0.00</p>
 						</div>
-						<button class="calculator__reset">Reset</button>
+						<button class="reset-button">Reset</button>
 					</div>
 				</div>
 			</div>
