@@ -1,0 +1,26 @@
+@use 'utility' as *;
+
+.grid {
+	display: grid;
+
+	&-button {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.gap-xs {
+	row-gap: 0.6rem;
+}
+
+.gap-sm {
+	row-gap: 1.6rem;
+	column-gap: 1.6rem;
+}
+
+.gap-md {
+	row-gap: 2rem;
+}
+
+.gap-lg {
+	row-gap: 3.2rem;
+}
