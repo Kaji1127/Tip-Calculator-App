@@ -5,6 +5,10 @@
 
 	&-button {
 		grid-template-columns: repeat(2, 1fr);
+
+		@include breakpoint(medium) {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 }
 

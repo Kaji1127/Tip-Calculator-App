@@ -24,4 +24,9 @@
 	width: 100%;
 	border-radius: 5px;
 	padding: 1rem 0;
+	cursor: pointer;
+
+	@include breakpoint(medium) {
+		align-self: end;
+	}
 }
