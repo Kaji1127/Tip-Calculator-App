@@ -6,27 +6,35 @@
 	border-radius: 5px;
 	font-weight: 700;
 	cursor: pointer;
+	transition: 0.4s;
 
+	&:hover {
+		background-color: var(--lightCyan);
+	}
 	&-tip {
 		font-size: 2.4rem;
 		background-color: var(--veryDarkCyan);
 		color: var(--white);
+
+		&:hover {
+			color: var(--veryDarkCyan);
+		}
+	}
+
+	&-reset {
+		font-size: 2rem;
+		text-transform: uppercase;
+		color: var(--veryDarkCyan);
+		background-color: var(--cyan);
+		width: 100%;
+		padding: 1rem 0;
+
+		@include breakpoint(medium) {
+			align-self: end;
+		}
 	}
 }
 
-.reset-button {
-	font-size: 2rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	color: var(--veryDarkCyan);
-	border: none;
+.active {
 	background-color: var(--cyan);
-	width: 100%;
-	border-radius: 5px;
-	padding: 1rem 0;
-	cursor: pointer;
-
-	@include breakpoint(medium) {
-		align-self: end;
-	}
 }
