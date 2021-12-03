@@ -39,7 +39,7 @@
 						<div class="calculator__bill grid gap-xs">
 							<div class="heading-content">
 								<label class="heading label" for="bill">Bill</label>
-								<p class="error">Can't be zero</p>
+								<p class="error error-bill">Can't be zero</p>
 							</div>
 							<input
 								type="text"
@@ -48,6 +48,7 @@
 									calculator__input
 									calculator__input--num
 									calculator__input--dollar
+									bill
 								"
 								placeholder="0"
 							/>
@@ -62,7 +63,7 @@
 								<button class="button button-tip">50%</button>
 								<input
 									type="text"
-									class="calculator__input calculator__input--custom"
+									class="calculator__input calculator__input--custom custom"
 									placeholder="Custom"
 								/>
 							</div>
@@ -70,7 +71,7 @@
 						<div class="calculator__person grid gap-xs">
 							<div class="heading-content">
 								<label class="heading label" for="person">Number of People</label>
-								<p class="error">Can't be zero</p>
+								<p class="error error-person">Can't be zero</p>
 							</div>
 							<input
 								id="person"
@@ -80,6 +81,7 @@
 									calculator__input
 									calculator__input--num
 									calculator__input--person
+									person
 								"
 							/>
 						</div>
@@ -92,7 +94,7 @@
 									>/ person</span
 								>
 							</p>
-							<p class="calculator__result-num">$0.00</p>
+							<p class="calculator__result-num tip-amount">$0.00</p>
 						</div>
 						<div class="calculator__amount">
 							<p>
@@ -101,9 +103,9 @@
 									>/ person</span
 								>
 							</p>
-							<p class="calculator__result-num">$0.00</p>
+							<p class="calculator__result-num total">$0.00</p>
 						</div>
-						<button class="reset-button">Reset</button>
+						<button class="button button-reset">Reset</button>
 					</div>
 				</div>
 			</div>
