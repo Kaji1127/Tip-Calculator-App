@@ -1,12 +1,16 @@
 /* ================ Variables ================ */
 const bill = document.querySelector('.bill');
 const person = document.querySelector('.person');
-const custoTip = document.querySelector('.custom');
+const customTip = document.querySelector('.custom');
 const tipAmount = document.querySelector('.tip-amount');
 const total = document.querySelector('.total');
 const tipButtons = document.querySelectorAll('.button-tip');
 const errBill = document.querySelector('.error-bill');
 const errPerson = document.querySelector('.error-person');
+
+let percent = 0;
+let billValue;
+let personValue;
 
 // アクティブ状態のボタンを設定
 const buttonActive = () => {
@@ -20,16 +24,31 @@ const buttonActive = () => {
 	});
 };
 
+// チップボタンの値を取得
 const selectTip = () => {
 	tipButtons.forEach((button) => {
-		button.addEventListener('click', () => {
-			if (button.innerHTML === '5%') {
-				console.log('5%!');
+		button.addEventListener('click', (e) => {
+			if (e.target === customTip) {
+			} else {
+				percent = Number(e.target.value);
 			}
 		});
 	});
 };
-selectTip();
+
+const calcTip = () => {
+	selectTip();
+	person.addEventListener('input', () => {
+		billValue = Number(bill.value);
+		personValue = Number(person.value);
+		if (personValue === '' || personValue === 0) {
+			return false;
+		}
+		tipAmount.innerHTML = `$${((billValue * percent) / personValue).toFixed(2)}`;
+	});
+};
+
+calcTip();
 
 // 0の時エラーを出す
 const validation = () => {
