@@ -3,14 +3,17 @@ const bill = document.querySelector('.bill');
 const person = document.querySelector('.person');
 const customTip = document.querySelector('.custom');
 const tipAmount = document.querySelector('.tip-amount');
-const total = document.querySelector('.total');
+const totalAmount = document.querySelector('.total');
 const tipButtons = document.querySelectorAll('.button-tip');
 const errBill = document.querySelector('.error-bill');
 const errPerson = document.querySelector('.error-person');
+const resetButton = document.querySelector('.button-reset');
 
 let percent = 0;
 let billValue;
 let personValue;
+let tip;
+let total;
 
 // アクティブ状態のボタンを設定
 const buttonActive = () => {
@@ -28,27 +31,35 @@ const buttonActive = () => {
 const selectTip = () => {
 	tipButtons.forEach((button) => {
 		button.addEventListener('click', (e) => {
-			if (e.target === customTip) {
-			} else {
-				percent = Number(e.target.value);
-			}
+			percent = Number(e.target.value);
 		});
 	});
 };
 
+// チップのパーセントをカスタムした時
+const customedTip = () => {
+	customTip.addEventListener('input', (e) => {
+		percent = Number(e.target.value / 100);
+	});
+};
+
+// チップの計算
 const calcTip = () => {
 	selectTip();
+	customedTip();
 	person.addEventListener('input', () => {
 		billValue = Number(bill.value);
 		personValue = Number(person.value);
 		if (personValue === '' || personValue === 0) {
 			return false;
 		}
-		tipAmount.innerHTML = `$${((billValue * percent) / personValue).toFixed(2)}`;
+		tip = ((billValue * percent) / personValue).toFixed(2);
+		total = billValue / personValue + Number(tip);
+
+		tipAmount.innerHTML = `$${tip}`;
+		totalAmount.innerHTML = `$${total}`;
 	});
 };
-
-calcTip();
 
 // 0の時エラーを出す
 const validation = () => {
@@ -69,5 +80,20 @@ const validation = () => {
 	});
 };
 
+const reset = () => {
+	resetButton.addEventListener('click', () => {
+		bill.value = '';
+		person.value = '';
+		tipButtons.forEach((button) => {
+			button.classList.remove('active');
+		});
+		customTip.value = '';
+		tipAmount.innerHTML = '$0.00';
+		totalAmount.innerHTML = '$0.00';
+	});
+};
+
 buttonActive();
 validation();
+calcTip();
+reset();
